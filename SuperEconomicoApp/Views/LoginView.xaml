@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:helpers="clr-namespace:DemoApp.Helpers"
+             xmlns:vm="clr-namespace:SuperEconomicoApp.ViewsModels"
+             xmlns:controls="clr-namespace:SuperEconomicoApp.Controls;assembly=SuperEconomicoApp"
+             x:Class="SuperEconomicoApp.Views.LoginView"
+             Visual="Material"
+             BackgroundImageSource="rojo_negro"
+             >
+    <ContentPage.BindingContext>
+        <vm:LoginViewModel/>
+    </ContentPage.BindingContext>
+    <Grid>
+
+
+        <Grid Padding="20" VerticalOptions="Center" Opacity="0.6">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+         
+         
+        </Grid.RowDefinitions>
+
+            <StackLayout Grid.Row="0" VerticalOptions="Center">
+                <Label Grid.Row="0"
+                   Text="El Economico" FontFamily="CabinSketch"
+                   TextColor="White" FontAttributes="Bold"
+                   FontSize="60" HorizontalOptions="Center" >
+                  
+
+                </Label>
+                <Label 
+                   Text="Login Form" FontFamily="CabinSketch"
+                   TextColor="White" FontAttributes="Bold"
+                   FontSize="40" HorizontalOptions="Center" >
+
+                </Label>
+            </StackLayout>
+
+            <StackLayout Grid.Row="1" VerticalOptions="Center">
+                <Frame CornerRadius="20" >
+                    <StackLayout Orientation="Horizontal">
+                        <Image Source="usuario" 
+                               HorizontalOptions="Start" 
+                               VerticalOptions="Center"
+                               Aspect="AspectFit"></Image>
+                        <Entry 
+                    
+            Placeholder="Username" 
+            Text="{Binding UserName}" 
+            BackgroundColor="Transparent" 
+                            HorizontalOptions="FillAndExpand"/>
+                    </StackLayout>
+                </Frame>
+                <Frame CornerRadius="20" >
+                    <StackLayout Orientation="Horizontal">
+                        <Image Source="password" 
+                               HorizontalOptions="Start" 
+                               VerticalOptions="Center"
+                               Aspect="AspectFit"></Image>
+                        <Entry 
+            Placeholder="Password" 
+            Text="{Binding Password}" 
+            IsPassword="True"  
+            BackgroundColor="Transparent" 
+                            HorizontalOptions="FillAndExpand"
+            />
+                    </StackLayout>
+                </Frame>
+
+             
+
+            
+
+                <Button 
+            Text="Login" 
+            BackgroundColor="LimeGreen" 
+            TextColor="Black" 
+            WidthRequest="400" 
+            HeightRequest="60"
+            Command="{Binding LoginCommand}"
+            x:Name="login"
+            Clicked="login_Clicked"/>
+
+                <Button 
+            Text="REGISTRAR" 
+            BackgroundColor="LimeGreen" 
+            TextColor="Black" 
+            WidthRequest="400" 
+                    HeightRequest="60"
+            Command="{Binding RegisterCommand}"/>
+
+                <Label
+            HorizontalOptions="Center"
+            TextColor="White"
+            VerticalOptions="Center"
+            >
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Desea recuperar su cuenta? " />
+                            <Span FontAttributes="Bold" Text="RECUPERAR"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+
+            </StackLayout>
+           
+          
+
+
+
+    </Grid>
+    </Grid>
+</ContentPage>
